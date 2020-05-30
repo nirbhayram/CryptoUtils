@@ -35,11 +35,7 @@ class AsymmetricEncryptionUtilsTest {
         String plianText = "This is string that is to be encrypted by RSA algo.";
         byte[] cipherText = AsymmetricEncryptionUtils.performRSAEncryption(plianText, keyPair.getPrivate());
         String decryptedText = AsymmetricEncryptionUtils.performRSADecryption(cipherText, keyPair.getPublic());
-        if (plianText.equals(decryptedText)) {
-            System.out.println("Test passed");
-        } else {
-            System.out.println("Test failed");
-        }
+        //TODO check decrypted and plain text matches.
     }
 
 }
