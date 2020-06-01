@@ -23,7 +23,6 @@ class SymmetricEncryptionUtilsTest {
     public void testCreateAESKey() throws NoSuchAlgorithmException {
         SecretKey secretKey = SymmetricEncryptionUtils.createAESKey();
         Assert.assertNotNull(secretKey);
-        System.out.println(secretKey.getEncoded());
     }
 
     @Test

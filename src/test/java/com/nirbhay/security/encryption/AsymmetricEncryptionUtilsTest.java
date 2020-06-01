@@ -16,8 +16,6 @@ class AsymmetricEncryptionUtilsTest {
     void genrateRSAKeyPair() throws NoSuchAlgorithmException {
         KeyPair keyPair = AsymmetricEncryptionUtils.genrateRSAKeyPair();
         Assert.assertNotNull(keyPair);
-        System.out.println(keyPair.getPrivate().getEncoded());
-        System.out.println(keyPair.getPublic().getEncoded());
     }
 
     @Test
