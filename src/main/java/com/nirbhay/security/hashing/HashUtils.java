@@ -28,5 +28,6 @@ public class HashUtils {
     }
 
     //TODO implement method named hash password for password hashing.
+    //TODO use Bcrypt library for this.
 
 }
