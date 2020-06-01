@@ -1,5 +1,6 @@
 package com.nirbhay.security.encryption;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,19 +22,19 @@ class SymmetricEncryptionUtilsTest {
     @Test
     public void testCreateAESKey() throws NoSuchAlgorithmException {
         SecretKey secretKey = SymmetricEncryptionUtils.createAESKey();
-        //TODO check that key is not null
+        Assert.assertNotNull(secretKey);
         System.out.println(secretKey.getEncoded());
     }
 
     @Test
     public void testPerformAESEncryptionDecryption() throws NoSuchAlgorithmException, IllegalBlockSizeException, InvalidKeyException, BadPaddingException, InvalidAlgorithmParameterException, NoSuchPaddingException {
         SecretKey key = SymmetricEncryptionUtils.createAESKey();
-        //TODO check that key is not null
+        Assert.assertNotNull(key);
         byte[] iv = SymmetricEncryptionUtils.createInitializationVector();
         String plainText = "This is plain text which is to be encrypted by AES algo.";
         byte[] cipherText = SymmetricEncryptionUtils.performAESEncryption(plainText, key, iv);
         String decryptedText = SymmetricEncryptionUtils.performAESDecryption(cipherText, key, iv);
-        //TODO check plaintext matches with decrypted text
+        Assert.assertEquals(decryptedText, plainText);
     }
 
     @AfterEach
