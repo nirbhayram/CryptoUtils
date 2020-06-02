@@ -28,4 +28,11 @@ class HashUtilsTest {
         byte[] hashedValue2 = HashUtils.performSHAHashing(textToHash, salt);
         Assert.assertEquals(DatatypeConverter.printHexBinary(hashedValue), DatatypeConverter.printHexBinary(hashedValue2));
     }
+
+    @Test
+    void checkPasswordHashing() {
+        String password = "This is my password which need to hash";
+        String hashPassword = HashUtils.performPasswordHashing(password);
+        Assert.assertTrue(HashUtils.verifyPassword(password, hashPassword));
+    }
 }

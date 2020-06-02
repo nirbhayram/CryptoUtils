@@ -1,5 +1,8 @@
 package com.nirbhay.security.hashing;
 
+
+import org.mindrot.jbcrypt.BCrypt;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.security.MessageDigest;
@@ -27,7 +30,12 @@ public class HashUtils {
         return messageDigest.digest(valueToHash);
     }
 
-    //TODO implement method named hash password for password hashing.
-    //TODO use Bcrypt library for this.
+    public static String performPasswordHashing(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+
+    public static boolean verifyPassword(String password, String hashPassword) {
+        return BCrypt.checkpw(password, hashPassword);
+    }
 
 }
